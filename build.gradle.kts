@@ -11,7 +11,7 @@ plugins {
 	kotlin("plugin.jpa") version "1.7.22"
 
 	// QueryDSL
-	kotlin("kapt") version "1.7.10"
+	kotlin("kapt") version "1.8.21"
 
 	// JPA support
 	id("org.jetbrains.kotlin.plugin.allopen") version "1.7.22" apply false
@@ -87,8 +87,11 @@ project(":module-domain") {
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 		implementation("org.springframework.boot:spring-boot-starter-security")
-		implementation("com.querydsl:querydsl-jpa:$queryDslVersion")
-		kapt("com.querydsl:querydsl-apt:$queryDslVersion:jpa")
+		implementation("com.querydsl:querydsl-jpa:$queryDslVersion:jakarta")
+		kapt("com.querydsl:querydsl-apt:$queryDslVersion:jakarta")
+		kapt ("jakarta.annotation:jakarta.annotation-api")
+		kapt ("jakarta.persistence:jakarta.persistence-api")
+
 	}
 
 	// QueryDSL Qclass path
