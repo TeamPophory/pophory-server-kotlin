@@ -1,4 +1,4 @@
-package com.pophory.pophoryapi.controller
+package com.pophory.pophorydomain.common.common
 
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

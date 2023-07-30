@@ -32,7 +32,7 @@ allprojects {
 
 	tasks.withType<KotlinCompile> {
 		kotlinOptions {
-			freeCompilerArgs = listOf("-Xjsr305=strict")
+			freeCompilerArgs = listOf("-Xjsr305=strict", "-Xextended-compiler-checks")
 			jvmTarget = "17"
 		}
 	}
@@ -46,6 +46,9 @@ subprojects {
 
 	dependencies {
 		implementation(kotlin("stdlib"))
+		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+		implementation("org.jetbrains.kotlin:kotlin-reflect")
+		implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
 		// database
 		runtimeOnly("com.h2database:h2")
@@ -83,7 +86,6 @@ project(":module-domain") {
 		annotation("jakarta.persistence.Embeddable")
 	}
 
-
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 		implementation("org.springframework.boot:spring-boot-starter-security")
@@ -113,7 +115,8 @@ project(":module-api") {
 	}
 
 	dependencies {
-		api(project(":module-domain"))
+		implementation(project(":module-domain"))
+
 		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 		implementation("org.springframework.boot:spring-boot-starter-web")
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
