@@ -11,7 +11,7 @@ plugins {
 	kotlin("plugin.jpa") version "1.7.22"
 
 	// QueryDSL
-	kotlin("kapt") version "1.8.21"
+	kotlin("kapt") version "1.7.0"
 
 	// JPA support
 	id("org.jetbrains.kotlin.plugin.allopen") version "1.7.22" apply false
@@ -22,9 +22,14 @@ plugins {
 
 }
 
+kotlin {
+	jvmToolchain(17)
+}
+
 allprojects {
 	group = "com.pophory"
 	version = "0.0.1-SNAPSHOT"
+
 
 	repositories {
 		mavenCentral()
@@ -45,6 +50,8 @@ subprojects {
 	}
 
 	dependencies {
+
+
 		implementation(kotlin("stdlib"))
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -123,3 +130,9 @@ project(":module-api") {
 		runtimeOnly("com.h2database:h2")
 	}
 }
+
+val jar: Jar by tasks
+val bootJar: BootJar by tasks
+
+bootJar.enabled = false
+jar.enabled = true
