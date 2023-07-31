@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
 @SpringBootApplication(scanBasePackages = ["com.pophory.pophoryapi", "com.pophory.pophorydomain"])
 @EntityScan(basePackages = ["com.pophory.pophorydomain"])
-@EnableJpaRepositories(basePackages = ["com.pophory.pophorydomain"])
+@EnableJpaRepositories(basePackages = ["com.pophory.pophorydomain", "com.pophory.pophoryapi"])
 class PophoryApiApplication
 
 fun main(args: Array<String>) {

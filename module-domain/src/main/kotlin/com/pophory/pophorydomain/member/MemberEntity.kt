@@ -22,12 +22,17 @@ class MemberEntity (
     @Column(length = 8, nullable = false)
     val pophoryId: String,
     val fcmToken: String,
-    val isDeleted: Boolean = false,
-    val deletedAt: LocalDateTime
+    var isDeleted: Boolean = false,
+    var deletedAt: LocalDateTime
 ) : BaseTimeEntity() {
+    val MEMBER_STORAGE_EXPIRATION = 7L
     fun validateNotNull() {
         Assert.notNull(social, "social must not be null")
         Assert.notNull(pophoryId, "pophory must not be null")
     }
 
+    fun softDelete() {
+        this.isDeleted = true
+        this.deletedAt = LocalDateTime.now().plusDays(MEMBER_STORAGE_EXPIRATION)
+    }
 }

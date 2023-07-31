@@ -4,7 +4,6 @@ import com.pophory.pophoryapi.member.dto.response.MemberGetResponse
 import com.pophory.pophorydomain.common.common.ApiController
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PatchMapping
 
 @ApiController
 class MemberApiController(private val memberService: MemberService) {
