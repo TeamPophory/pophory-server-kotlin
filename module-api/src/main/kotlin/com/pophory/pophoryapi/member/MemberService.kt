@@ -11,10 +11,10 @@ import org.springframework.transaction.annotation.Transactional
 class MemberService(private val memberJpaRepository: MemberJpaRepository) {
 
     fun getMemberInfo(id: Long): MemberGetResponse {
-        return MemberGetResponse.of(getMemberById(id))
+        return MemberGetResponse.of(memberJpaRepository.findByIdOrThrow(id))
     }
 
-    private fun getMemberById(id: Long): MemberEntity {
-        return memberJpaRepository.findById(id).orElseThrow { throw EntityNotFoundException("Member not found") }
+    fun deleteMember(id: Long) {
+        memberJpaRepository.deleteById(id)
     }
 }
