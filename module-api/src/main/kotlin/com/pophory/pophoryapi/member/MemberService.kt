@@ -1,8 +1,6 @@
 package com.pophory.pophoryapi.member
 
 import com.pophory.pophoryapi.member.dto.response.MemberGetResponse
-import com.pophory.pophorydomain.member.MemberEntity
-import jakarta.persistence.EntityNotFoundException
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
