@@ -14,9 +14,9 @@ class MemberEntity (
     val social:SocialType,
     val name: String,
     @Column(length = 6)
-    val realName: String,
+    var realName: String,
     @Column(length = 15, unique = true)
-    val nickname: String,
+    var nickname: String,
     val profileImageUrl: String,
     val refreshToken: String,
     @Column(length = 8, nullable = false)
