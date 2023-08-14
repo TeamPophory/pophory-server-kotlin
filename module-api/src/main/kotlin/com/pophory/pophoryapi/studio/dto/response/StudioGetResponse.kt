@@ -4,7 +4,6 @@ import com.pophory.pophorydomain.studio.StudioEntity
 
 data class StudioGetResponse(
     val id: Long,
-
     val name: String
 ) {
 
