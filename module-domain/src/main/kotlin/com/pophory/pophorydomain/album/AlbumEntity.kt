@@ -19,7 +19,7 @@ class AlbumEntity(
     @OneToOne(fetch = FetchType.LAZY)
     var member: MemberEntity
 ) {
-    val ALBUM_STORAGE_EXPIRATION = 7L
+    private val ALBUM_STORAGE_EXPIRATION = 7L
     fun softDelete() {
         this.isDeleted = true
         this.deletedAt = LocalDateTime.now().plusDays(ALBUM_STORAGE_EXPIRATION)
