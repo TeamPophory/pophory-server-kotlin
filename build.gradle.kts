@@ -96,6 +96,7 @@ project(":module-domain") {
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 		implementation("org.springframework.boot:spring-boot-starter-security")
+		implementation("software.amazon.awssdk:s3:latest")
 		implementation("com.querydsl:querydsl-jpa:$queryDslVersion:jakarta")
 		kapt("com.querydsl:querydsl-apt:$queryDslVersion:jakarta")
 		kapt ("jakarta.annotation:jakarta.annotation-api")

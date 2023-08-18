@@ -12,16 +12,15 @@ class MemberEntity (
     val id: Long = 0,
     @Enumerated(value = EnumType.STRING)
     val social:SocialType,
-    val name: String,
     @Column(length = 6)
-    var realName: String,
+    var realName: String?,
     @Column(length = 15, unique = true)
-    var nickname: String,
-    val profileImageUrl: String,
-    val refreshToken: String,
+    var nickname: String?,
+    val profileImageUrl: String?,
+    val refreshToken: String?,
     @Column(length = 8, nullable = false)
     val pophoryId: String,
-    val fcmToken: String,
+    val fcmToken: String?,
     var isDeleted: Boolean = false,
     var deletedAt: LocalDateTime
 ) : BaseTimeEntity() {

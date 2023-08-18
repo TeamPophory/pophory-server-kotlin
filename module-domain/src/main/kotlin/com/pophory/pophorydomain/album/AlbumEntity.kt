@@ -9,7 +9,6 @@ import java.time.LocalDateTime
 class AlbumEntity(
     @Id @GeneratedValue
     val id: Long,
-    val name: String,
     val title: String = "기본 앨범",
     val photoLimit: Int = 0,
     val imageUrl: String? = null,
@@ -23,6 +22,12 @@ class AlbumEntity(
     fun softDelete() {
         this.isDeleted = true
         this.deletedAt = LocalDateTime.now().plusDays(ALBUM_STORAGE_EXPIRATION)
+    }
+
+    fun validateAlbum() {
+        if (this.photoLimit < 0) {
+            throw IllegalArgumentException("photoLimit must be positive")
+        }
     }
 
 }
