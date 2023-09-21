@@ -28,4 +28,5 @@ class PhotoEntity(
     var deletedAt: LocalDate? = null
 
 ) {
+
 }
