@@ -1,4 +1,8 @@
 package com.pophory.pophorydomain.photo
 
-class PhotoQueryRepository {
+import com.querydsl.jpa.impl.JPAQueryFactory
+
+class PhotoQueryRepository(
+        private val jpaQueryFactory: JPAQueryFactory
+) {
 }
